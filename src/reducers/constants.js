@@ -1,0 +1,1 @@
+export const FETCHDATA_ACTION = "app/FETCHDATA_ACTION";
