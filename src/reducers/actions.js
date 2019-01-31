@@ -1,5 +1,6 @@
-import {FETCH_REQUEST,FETCH_SUCCESS,FETCH_FAILURE} from './constants'
-import fetch from 'isomorphic-fetch';
+import {FETCH_REQUEST,FETCH_SUCCESS,FETCH_FAITURE} from './constants'
+// import fetch from 'isomorphic-fetch';
+import 'whatwg-fetch'
 
 export function fetchRequest() {
     return {
@@ -16,7 +17,7 @@ export function fetchRequest() {
   
   export function fetchFailure(ex) {
     return {
-      type: FETCH_FAILURE,
+      type: FETCH_FAITURE,
       ex
     }
   }

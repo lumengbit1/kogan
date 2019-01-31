@@ -1,4 +1,4 @@
-import {FETCH_REQUEST,FETCH_SUCCESS,FETCH_FAILURE} from './constants'
+import {FETCH_REQUEST,FETCH_SUCCESS,FETCH_FAITURE} from './constants'
 
 const initialState = ({
     fetchdata: null,
