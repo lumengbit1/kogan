@@ -58,22 +58,6 @@ describe('mapStateToProps,mapDispatchToProps Testing',()=>{
     })
 })
 
-// describe('Test Button component',() => { 
-//     it('simulates click events',() => { 
-//     const mockCallBack = sinon.stub(); 
-//     let wrapper, store;
-//     const middlewares = [thunk];
-//     const mockStore = configureMockStore(middlewares);
-//     store=mockStore();
-//     wrapper = mount(
-//         <Provider store={store} >
-//             <Content onClick={mockCallBack}/>
-//         </Provider>);
-
-//     wrapper.find('button').simulate('click'); 
-//     // expect(mockCallBack).toHaveProperty('callCount', 1); 
-//     }); 
-// }); 
 
 describe('render snapshop testing',()=>{
     it('renders correctly', () => {
