@@ -2,8 +2,7 @@ import React from 'react'
 import Enzyme,{ configure, shallow,mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import App from './../App'
-import Header from './../components/Header'
-import Footer from './../components/Footer'
+import Content from './../components/Content'
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -15,10 +14,6 @@ describe(`Test <App />`, () => {
     })
 
     it('2. "Header" Could be rendered', () => {
-        expect(warpper.find('Header').exists());
-    })
-
-    it('3. "Footer" Could be rendered', () => {
-        expect(warpper.find('Footer').exists());
+        expect(warpper.find('Content').exists());
     })
 })

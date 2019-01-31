@@ -1,21 +1,35 @@
-import {FETCHDATA_ACTION} from './constants'
+import {FETCH_REQUEST,FETCH_SUCCESS,FETCH_FAILURE} from './constants'
+import fetch from 'isomorphic-fetch';
 
-export const initListAction=(jsondata)=>({
-    type:FETCHDATA_ACTION,
-    data:jsondata
-});
+export function fetchRequest() {
+    return {
+      type: FETCH_REQUEST
+    }
+  }
+  
+  export function fetchSuccess(data) {
+    return {
+      type: FETCH_SUCCESS,
+      data
+    }
+  }
+  
+  export function fetchFailure(ex) {
+    return {
+      type: FETCH_FAILURE,
+      ex
+    }
+  }
 
 
-export const getEventList=()=>{
+
+export const getProducts=()=>{
     return (dispatch)=>{
-         return fetch('http://wp8m3he1wt.s3-website-ap-southeast-2.amazonaws.com/api/products/1')
-            .then((res)=>{
-                return res.json();       
-            }).then((json)=>{
-                dispatch(initListAction(json))
-            })
-            
- 
+        dispatch(fetchRequest())
+        return fetch('/api/products/1')
+        .then(res => res.json())
+        .then(json => dispatch(fetchSuccess(json)))
+        .catch(ex => dispatch(fetchFailure(ex)))         
     }
 };
 

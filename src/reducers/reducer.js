@@ -1,18 +1,17 @@
-import {FETCHDATA_ACTION} from './constants'
-
+import {FETCH_REQUEST,FETCH_SUCCESS,FETCH_FAILURE} from './constants'
 
 const initialState = ({
     fetchdata: null,
 });
 
-function counter(state = initialState, action) {
-     const fetchdata =state.fetchdata;
+function reducer(state = initialState, action) {
+    const fetchdata =state.fetchdata;
     switch (action.type) {
-        case FETCHDATA_ACTION:
+        case FETCH_SUCCESS:
             return { fetchdata: action.data }
         default:
             return state
     }
 }
 
-export default counter;
+export default reducer;

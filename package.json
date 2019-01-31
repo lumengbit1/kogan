@@ -2,10 +2,14 @@
   "name": "bravo",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://wp8m3he1wt.s3-website-ap-southeast-2.amazonaws.com",
   "dependencies": {
+    "axios": "^0.18.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "fetch-mock": "^7.3.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.3.1",
     "nock": "^10.0.6",
     "node-fetch": "^2.3.0",
     "react": "^16.7.0",
@@ -21,7 +25,7 @@
     "resolve-url-loader": "^3.0.0",
     "sinon": "^7.2.3"
   },
-  "scripts": {
+    "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
