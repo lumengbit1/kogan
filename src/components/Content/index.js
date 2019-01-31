@@ -16,39 +16,41 @@ class Content extends Component{
         onfetchData();
     }
 
-    cubiccmTom = (centimetres)=>{
+    cubiccmTom=(centimetres)=>{
         return centimetres/1000000;
     }
 
-    gramToKilo = (gram)=>{
+    gramToKilo=(gram)=>{
         return gram/1000;
     }
 
-    calcWeight=(dimensions)=>{
+    calcWeight=()=>{
         const {content} = this.props;
         let weight_sum = 0;
         let average_weight =0;
         let air_num=0
-        content.map(item=>{
-            if(item.category==='Air Conditioners'){
-                let size = item.size;
-                weight_sum += this.gramToKilo(item.weight)*this.cubiccmTom(size.width*size.length*size.height);
-                air_num ++;
-            }
-            
-        })
-        console.log(content.length)
-        average_weight = weight_sum/air_num;
-        this.setState({weight:average_weight});
+        if(content.length!==0){
+            content.map(item=>{
+                if(item.category==='Air Conditioners'){
+                    let size = item.size;
+                    weight_sum += this.gramToKilo(item.weight)*this.cubiccmTom(size.width*size.length*size.height);
+                    air_num ++;
+                }
+                
+            })
+            average_weight = weight_sum/air_num;
+            this.setState({weight:average_weight});
+        }
+
     }
 
     render(){
         return(
             <div className='content'>
                 <label htmlFor='average_cubic_weight'>average cubic weight:</label>
-                <input id='average_cubic_weight' value={this.state.weight}  readOnly/>kg
+                <p style={{display:'inline'}}>{`${this.state.weight}kg`}</p>
                 <br/>
-                <input type='button' value='Calculate Weight' onClick={this.calcWeight}/>
+                <button onClick={this.calcWeight}>Calculate Weight</button>
             </div>
         )
     }
