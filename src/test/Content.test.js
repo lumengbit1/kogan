@@ -75,5 +75,19 @@ describe('render snapshop testing',()=>{
       });
 })
 
-
+describe('component test',()=>{
+    it('click test',()=>{
+        const click = sinon.stub(Content,'calcWeight');
+        let wrapper, store;
+        const middlewares = [thunk];
+        const mockStore = configureMockStore(middlewares);
+        store=mockStore();
+        wrapper = mount(
+            <Provider store={store} >
+                <Content/>
+            </Provider>);
+        wrapper.find('button').simulate('click')
+        expect(click.called).toEqual(true);
+    })
+})
 

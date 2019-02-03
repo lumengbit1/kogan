@@ -24,6 +24,7 @@ class Content extends Component{
         return gram/1000;
     }
 
+
     calcWeight=()=>{
         const {content} = this.props;
         let weight_sum = 0;
